@@ -36,6 +36,7 @@
 /* Begin PBXBuildFile section */
 		279993D298A64D8ABFCAEE9B /* tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBFA84A7E3B944E7B9666589 /* tools.cpp */; };
 		424F026F6AEE41FDB8BD0423 /* FusionEKF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEEFB70FE82249DBA5CA6EF5 /* FusionEKF.cpp */; };
+		AA033D1B212603BF00BAD012 /* TestKalmanFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA033D19212603BF00BAD012 /* TestKalmanFilter.cpp */; };
 		D577BE8C039F45DEB13822B2 /* kalman_filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B63131B17F9F4803ACD02914 /* kalman_filter.cpp */; };
 		F9CF643ED0164E599BF2D926 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6B760E42C5F44265817FA338 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -71,9 +72,10 @@
 		64A2485C26644DF58666DA3F /* ExtendedKF */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = ExtendedKF; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B760E42C5F44265817FA338 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		952A6AE715EE45E5BB9232EC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		AA033D19212603BF00BAD012 /* TestKalmanFilter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TestKalmanFilter.cpp; path = src/TestKalmanFilter.cpp; sourceTree = "<group>"; };
+		AA033D1A212603BF00BAD012 /* TestKalmanFilter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TestKalmanFilter.hpp; path = src/TestKalmanFilter.hpp; sourceTree = "<group>"; };
 		B63131B17F9F4803ACD02914 /* kalman_filter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = kalman_filter.cpp; path = src/kalman_filter.cpp; sourceTree = SOURCE_ROOT; };
 		BBFA84A7E3B944E7B9666589 /* tools.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = tools.cpp; path = src/tools.cpp; sourceTree = SOURCE_ROOT; };
-		CCD78406386D4AB79DEC3B60 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		CEEFB70FE82249DBA5CA6EF5 /* FusionEKF.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FusionEKF.cpp; path = src/FusionEKF.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -92,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				0A6FE817F8C64D39BD684E3F /* ExtendedKF */,
-				53D81DBCC7D749B49B6928F6 /* ALL_BUILD */,
 				9F1B6E18D2E246BEA426DEAB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,22 +105,15 @@
 				B63131B17F9F4803ACD02914 /* kalman_filter.cpp */,
 				6B760E42C5F44265817FA338 /* main.cpp */,
 				BBFA84A7E3B944E7B9666589 /* tools.cpp */,
+				AA033D19212603BF00BAD012 /* TestKalmanFilter.cpp */,
 			);
 			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		53D81DBCC7D749B49B6928F6 /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				B6E4F5280CD545EEAD99BDFD /* CMake Rules */,
-				CCD78406386D4AB79DEC3B60 /* CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
 		82CDD7B638544116A374427F /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA033D1A212603BF00BAD012 /* TestKalmanFilter.hpp */,
 				2CBF0E8F0DC44484AE64D7D3 /* FusionEKF.h */,
 				617C263789B7466CB18C9FFB /* kalman_filter.h */,
 				0500BB584C5B429BA18AD9FE /* tools.h */,
@@ -133,13 +127,6 @@
 				64A2485C26644DF58666DA3F /* ExtendedKF */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		B6E4F5280CD545EEAD99BDFD /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +208,7 @@
 				424F026F6AEE41FDB8BD0423 /* FusionEKF.cpp in Sources */,
 				D577BE8C039F45DEB13822B2 /* kalman_filter.cpp in Sources */,
 				F9CF643ED0164E599BF2D926 /* main.cpp in Sources */,
+				AA033D1B212603BF00BAD012 /* TestKalmanFilter.cpp in Sources */,
 				279993D298A64D8ABFCAEE9B /* tools.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,8 +410,9 @@
 		4980FDEB54F340A08E19EDF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_HEADERS_RUN_UNIFDEF = YES;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -448,8 +437,9 @@
 		4E31A448270E4FFD8ECC4F8B /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_HEADERS_RUN_UNIFDEF = YES;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -567,14 +557,14 @@
 		C533B0F8BDF347F5A7BE61B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_HEADERS_RUN_UNIFDEF = YES;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				"HEADER_SEARCH_PATHS[arch=*]" = "/usr/loca/inclue/*";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -594,8 +584,9 @@
 		E399BCBB7C90484EB16DDBA4 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_HEADERS_RUN_UNIFDEF = YES;
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;

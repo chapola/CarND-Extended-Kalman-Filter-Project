@@ -11,10 +11,10 @@ Tools::~Tools() {}
 
 VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
                               const vector<VectorXd> &ground_truth) {
-  /**
-  TODO:
-    * Calculate the RMSE here.
-  */
+    /**
+     TODO:
+     * Calculate the RMSE here.
+     */
     VectorXd rsme(4);
     rsme<<0,0,0,0;
     
@@ -45,10 +45,10 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 }
 
 MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
-  /**
-  TODO:
-    * Calculate a Jacobian here.
-  */
+    /**
+     TODO:
+     * Calculate a Jacobian here.
+     */
     MatrixXd Hj=MatrixXd(3,4);
     
     //Reciver State Parameter
@@ -64,6 +64,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
     // Check Division by 0
     if (abs(c1)<0.0001) {
         cout<<"Calculate Jacobian Error - Division by zero";
+        return Hj;
     }
     
     // compute Jacobian Matrix

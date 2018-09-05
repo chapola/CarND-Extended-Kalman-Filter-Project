@@ -11,6 +11,7 @@ using Eigen::VectorXd;
 KalmanFilter::KalmanFilter() {}
 
 KalmanFilter::~KalmanFilter() {}
+const float PI2= 2*M_PI;
 
 void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
                         MatrixXd &H_in, MatrixXd &R_in, MatrixXd &Q_in) {
@@ -40,9 +41,10 @@ void KalmanFilter::Update(const VectorXd &z) {
     VectorXd z_pred = H_ * x_;
     VectorXd y = z - z_pred;
     MatrixXd Ht = H_.transpose();
-    MatrixXd S = H_ * P_ * Ht + R_;
-    MatrixXd Si = S.inverse();
     MatrixXd PHt = P_ * Ht;
+    MatrixXd S = H_ *PHt + R_;
+    MatrixXd Si = S.inverse();
+    
     MatrixXd K = PHt * Si;
     
     //new estimate
@@ -75,6 +77,13 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     
     VectorXd y_ = z-h_x_prime;
     
+    // Normalize the angle between -pi to pi
+    while (y_(1)<-M_PI) {
+        y_(1)+=PI2;
+    };
+    while (y_(1)>M_PI) {
+        y_(1)-=PI2;
+    }
     
     
     
